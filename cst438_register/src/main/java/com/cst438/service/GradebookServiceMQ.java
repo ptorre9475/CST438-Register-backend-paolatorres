@@ -28,6 +28,8 @@ public class GradebookServiceMQ extends GradebookService {
 	public GradebookServiceMQ() {
 		System.out.println("MQ grade book service");
 	}
+	// TODO as part of the assignment, however, as explained by the professor in the walk through video, code
+	// was included in the repository by mistake
 	
 	// send message to grade book service about new student enrollment in course
 	@Override
