@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 @Entity
 public class Student {
 	
@@ -15,6 +18,7 @@ public class Student {
 	private String email;
 	private int statusCode;
 	private String status;
+	private boolean adminStatus;
 	
 	public Student() {
 		super();
@@ -50,10 +54,17 @@ public class Student {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public void setAdminStatus() {
+	   this.adminStatus = false;
+	}
+	public boolean getAdminStatus() {
+	   return adminStatus;
+	}
+	
 	@Override
 	public String toString() {
 		return "Student [student_id=" + student_id + ", name=" + name + ", email=" + email + ", statusCode="
-				+ statusCode + ", status=" + status + "]";
+				+ statusCode + ", status=" + status + ", adminStatus=" + adminStatus + "]";
 	}
 
 }

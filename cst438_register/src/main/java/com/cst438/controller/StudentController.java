@@ -4,6 +4,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,10 +26,11 @@ public class StudentController
       Student student = studentRepository.findByEmail(email);
       
       return student;
+     
    }
    
    // add a student
-   @PostMapping("/createStudent")
+   @PostMapping("/student")
    @Transactional 
    public void addStudent(String email, String name) {
       if (email == null || name == null) {
@@ -40,6 +42,7 @@ public class StudentController
          Student student = new Student();
          student.setEmail(email);
          student.setName(name);
+         student.setAdminStatus();
          studentRepository.save(student);
          System.out.println("Student created.");
       }
